@@ -259,17 +259,17 @@ def chatbot_response(user_input):
     if user_input in ["reset", "ulang", "mulai lagi", "ulang yuk"]:
         return reset_chat()
 
-    if user_input in ["makasih", "terima kasih", "thanks", "thank you"]:
-        return f"Sama-sama ya, {user_name or 'teman'} 🌷"
+    if user_input in ["makasih", "terima kasih", "thanks", "thank you", "makasih ya"]:
+        return f"Dengan senang hati, {user_name or 'teman'} Jangan ragu buat cerita denganku, aku akan selalu disini buatmu🌷"
 
     if context is None:
         context = "awaiting_name"
-        return "Hai! Boleh aku tahu siapa namamu?"
+        return "Halo! Senang sekali kamu datang ke Pulih Hati. Boleh tahu siapa namamu?"
 
     if context == "awaiting_name":
         user_name = extract_name(user_input)
         context = "awaiting_feeling"
-        return f"Hai {user_name}! Gimana perasaanmu hari ini?"
+        return f"Hai {user_name}! Senang sekali bisa mengenalmu 😊\n\n Gimana perasaanmu hari ini? Ada hal yang sedang memenuhi pikiran atau hatimu yang ingin kamu ceritakan? Jika kamu nyaman, aku disini untuk mendengarkan"
 
     if context == "awaiting_tip_permission":
         if user_input in ["iya", "ya", "mau", "boleh", "lanjut", "oke"]:
